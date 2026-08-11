@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backseat — Value to Partners &amp; Clients</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ---- tokens: matched to index.html so the two documents read as one set ---- */
+  :root{
+    --paper:#f5f2ea; --panel:#faf8f2; --band:#efeadd;
+    --ink:#16150f; --body:#3b3830; --mute:#6b675c;
+    --rule:#cfc8b6; --rule-soft:#e0d9c8; --chip:#d8d0bd;
+    --gold:#97764a; --blue:#2f4a72; --green:#3f6b4a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:Newsreader,Georgia,serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none;border-bottom:1px solid #c3cbd8}
+  a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  ::selection{background:#e5dcc4}
+
+  .wrap{max-width:1380px;margin:0 auto;padding:0 56px 110px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  /* ---- header ---- */
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;
+             padding:56px 0 22px;border-bottom:2px solid var(--ink)}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;
+           text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+  h1{font-size:60px;line-height:.98;font-weight:500;letter-spacing:-.025em;margin:0}
+  .lede{font-size:21px;line-height:1.4;color:var(--body);margin:14px 0 0;max-width:680px;text-wrap:pretty}
+  .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:2.1;color:var(--mute);
+        text-align:right;flex-shrink:0;letter-spacing:.04em}
+  .meta a{border-bottom-color:var(--rule)}
+
+  /* ---- section furniture ---- */
+  section{padding:52px 0 0}
+  .shead{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+  .snum{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold)}
+  h2{font-size:13px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.18em;
+     text-transform:uppercase;margin:0}
+  .skicker{font-size:16px;color:var(--mute);font-style:italic}
+  .intro{font-size:19px;line-height:1.5;color:var(--body);max-width:840px;margin:0 0 26px;text-wrap:pretty}
+
+  /* ---- generic blocks ---- */
+  .panel{border:1px solid var(--ink);background:var(--panel);padding:26px 28px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:stretch}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em}
+  .tagr{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--mute)}
+  .cardtop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:16px}
+  h3{font-size:30px;font-weight:500;letter-spacing:-.015em;margin:0 0 10px;line-height:1.1}
+  h4{font-size:26px;font-weight:500;letter-spacing:-.01em;margin:0 0 12px;line-height:1.12}
+  .p{font-size:18px;line-height:1.45;color:var(--body);margin:0 0 18px;text-wrap:pretty}
+  .rows{display:grid;gap:9px;border-top:1px solid var(--rule);padding-top:16px}
+  .row{display:flex;gap:12px;font-size:16px;line-height:1.4}
+  .row .k{font-family:'IBM Plex Mono',monospace;font-size:10px;width:62px;flex-shrink:0;
+          padding-top:4px;letter-spacing:.06em}
+  .band{border:1px solid var(--rule);background:var(--band);padding:16px 24px;
+        display:flex;gap:18px;align-items:baseline}
+  .band .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+           color:var(--gold);flex-shrink:0}
+  .band p{font-size:17px;line-height:1.45;margin:0;color:var(--body);text-wrap:pretty}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:15px;border:1px solid var(--chip);background:var(--paper);padding:5px 10px}
+  ul.tick{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+  ul.tick li{font-size:17px;line-height:1.45;color:var(--body);padding-left:20px;position:relative;text-wrap:pretty}
+  ul.tick li::before{content:"→";position:absolute;left:0;top:0;color:var(--gold);
+                     font-family:'IBM Plex Mono',monospace;font-size:13px}
+  strong{font-weight:600;color:var(--ink)}
+
+  /* ---- fill-in slots for credits still to be supplied ---- */
+  .slot{border:1px dashed var(--gold);background:rgba(151,118,74,.05);
+        font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+        color:var(--gold);padding:9px 12px;line-height:1.5}
+  .slot em{font-style:normal;color:var(--mute)}
+
+  /* ---- engagement table ---- */
+  .tbl{display:grid;grid-template-columns:190px 1fr 1fr 210px;gap:1px;
+       background:var(--rule);border:1px solid var(--rule)}
+  .tbl > div{background:var(--panel);padding:15px 18px;font-size:16.5px;line-height:1.4;color:var(--body)}
+  .tbl > div.h{background:var(--band);font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+               letter-spacing:.16em;color:var(--mute);padding:13px 18px}
+  .tbl > div.n{font-family:Newsreader,Georgia,serif;font-size:18px;color:var(--ink);font-weight:500}
+  .tbl > div.n span{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+                    letter-spacing:.14em;color:var(--gold);font-weight:400;margin-bottom:5px}
+
+  /* ---- stat strip ---- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .stats > div{background:var(--panel);padding:20px 22px 22px}
+  .stats .lab{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;
+              color:var(--mute);margin-bottom:14px}
+  .stats .big{font-size:46px;line-height:1;font-weight:400;letter-spacing:-.02em}
+  .stats .sub{font-size:16px;color:var(--body);margin-top:8px;line-height:1.35}
+
+  footer.end{margin-top:56px;border-top:2px solid var(--ink);padding-top:18px;
+             display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+             font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--mute)}
+
+  /* ---- mobile ---- */
+  @media (max-width:820px){
+    .wrap{padding:0 18px 70px}
+    header.top{flex-direction:column;align-items:flex-start;gap:20px;padding:34px 0 18px}
+    h1{font-size:36px}
+    .lede{font-size:18px}
+    .meta{text-align:left;line-height:1.9}
+    section{padding:32px 0 0}
+    .grid3,.grid2{grid-template-columns:1fr}
+    .panel{padding:18px 16px}
+    h3{font-size:23px}
+    h4{font-size:21px}
+    .intro{font-size:17.5px}
+    .stats{grid-template-columns:1fr 1fr}
+    .stats .big{font-size:34px}
+    .tbl{grid-template-columns:1fr}
+    .tbl > div.h{display:none}
+    .tbl > div{padding:12px 15px}
+    .tbl > div.n{border-top:2px solid var(--ink);padding-top:15px}
+    .band{flex-direction:column;gap:8px}
+  }
+  @media (max-width:480px){
+    h1{font-size:31px}
+    .stats{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:#fff}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <div class="eyebrow">Confidential — Prospective Partners &amp; Clients</div>
+      <h1>What Backseat Brings</h1>
+      <p class="lede">Backseat is a venture holding company with its roots in music. Three things travel with a Backseat relationship: a position inside the music business built over fifteen years, a balance sheet that can act rather than only advise, and standing that changes who takes the call.</p>
+    </div>
+    <div class="meta">
+      <div>THREE STANDPOINTS</div>
+      <div>MUSIC · VENTURE · OPTICS</div>
+      <div>REV. 01</div>
+      <div><a href="./index.html">FULL PLAN →</a></div>
+    </div>
+  </header>
+
+  <!-- 00 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">00</span>
+      <h2>The Proposition</h2>
+      <span class="skicker">three standpoints, one relationship</span>
+    </div>
+    <p class="intro">Most counterparties in this business give you one of these. An agency gives you marketing without capital. A fund gives you capital without taste. A publicist gives you optics without either. Backseat is built so that all three sit on the same side of the table — which is why the same relationship can begin as advisory and end as ownership.</p>
+
+    <div class="grid3">
+      <div class="panel">
+        <div class="cardtop">
+          <div class="tag" style="color:var(--gold)">STANDPOINT I</div>
+          <div class="tagr">EARNED</div>
+        </div>
+        <h3>Music</h3>
+        <p class="p">Fifteen years working with the top people in the business — artists, executives, and the operators who actually move records. That position is not a credential on a page; it is access, accurate judgement, and deal flow that never reaches the open market.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--gold)">GIVES</span><span>Off-market access, correct underwriting, campaigns run by people who have run them</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop">
+          <div class="tag" style="color:var(--blue)">STANDPOINT II</div>
+          <div class="tagr">STRUCTURAL</div>
+        </div>
+        <h3>Venture</h3>
+        <p class="p">A holding company, not a service shop. Backseat can underwrite, structure, co-invest and acquire — so a partner is not limited to what a fee can buy. Alignment can be written into the cap table instead of the invoice.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--blue)">GIVES</span><span>Capital, structuring, joint ventures, patient ownership rather than a billable hour</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop">
+          <div class="tag" style="color:var(--green)">STANDPOINT III</div>
+          <div class="tagr">COMPOUNDING</div>
+        </div>
+        <h3>Optics</h3>
+        <p class="p">Owned music rights, and a services business trusted inside catalogs we do not own. Association carries weight — and Backseat also operates the machinery that produces it: narrative, press, placement, rollout.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--green)">GIVES</span><span>Standing by association, plus the comms capability to build and defend it</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band" style="border-top:none">
+      <span class="k">WHY IT COMPOUNDS</span>
+      <p>Each standpoint makes the other two worth more. The music position sources opportunities the capital underwrites; the capital funds the IP that creates the optics; the optics reopen the rooms where the music position was built. A partner does not buy one of the three — they enter the loop.</p>
+    </div>
+  </section>
+
+  <!-- 01 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">01</span>
+      <h2>Music — Pedigree &amp; Position</h2>
+      <span class="skicker">fifteen years, at the level where it is decided</span>
+    </div>
+    <p class="intro">Backseat was born out of music, and out of a specific kind of music work: fifteen years alongside the top artists, executives and companies in the industry. Time in the business is common. Time <em>at that altitude</em> is not — and it is the difference between knowing the market and being inside it before the market exists.</p>
+
+    <div class="panel" style="margin-bottom:14px">
+      <div class="tag" style="color:var(--gold);margin-bottom:16px">TRACK RECORD</div>
+      <div class="grid2" style="gap:22px">
+        <div>
+          <div class="tagr" style="margin-bottom:9px">ARTISTS &amp; ROSTERS</div>
+          <div class="slot">[ TO SUPPLY — artists, rosters, catalogs worked ]<br><em>names, or the tier if names stay private</em></div>
+        </div>
+        <div>
+          <div class="tagr" style="margin-bottom:9px">LABELS, PUBLISHERS &amp; COMPANIES</div>
+          <div class="slot">[ TO SUPPLY — labels, publishers, distributors, agencies ]<br><em>roles held or mandates run</em></div>
+        </div>
+        <div>
+          <div class="tagr" style="margin-bottom:9px">EXECUTIVES &amp; DECISION-MAKERS</div>
+          <div class="slot">[ TO SUPPLY — the relationships that constitute the position ]<br><em>describable by seat if not by name</em></div>
+        </div>
+        <div>
+          <div class="tagr" style="margin-bottom:9px">CAMPAIGNS, RELEASES &amp; OUTCOMES</div>
+          <div class="slot">[ TO SUPPLY — releases, campaigns, certifications, results ]<br><em>the numbers that make the claim checkable</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h4>What the position actually gives a partner</h4>
+        <ul class="tick">
+          <li><strong>Access before the process.</strong> The best catalogs, rosters and partnerships are shown to known parties first. Backseat is one of those parties — most opportunities arrive before a banker is retained.</li>
+          <li><strong>Underwriting that is not guesswork.</strong> Fifteen years of watching how records actually earn is a valuation instrument. Decay curves, sync viability, re-record risk and the difference between a catalog that is stable and one that is merely quiet.</li>
+          <li><strong>Execution by people who have executed.</strong> Marketing counsel from operators who have run campaigns at scale, not from a deck built for the pitch.</li>
+          <li><strong>One call instead of six months.</strong> The introduction that takes a new entrant two quarters to earn is, here, a phone call — and it is made on a reputation that took fifteen years to build and would take one bad act to lose.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Why we are a different counterparty</h4>
+        <ul class="tick">
+          <li><strong>We are operators who became owners.</strong> Backseat buys and builds the assets it advises on. Our judgement is tested with our own capital, not only with a client's.</li>
+          <li><strong>The relationship outlives the transaction.</strong> A single deal is worth less to us than a standing in the business we intend to hold for another fifteen years. That asymmetry is the client's protection.</li>
+          <li><strong>One relationship, three depths.</strong> Advisory, services and outright acquisition all sit inside the same group — so a conversation can move from a fee to a joint venture to a sale without changing counterparties.</li>
+          <li><strong>Discretion is a default.</strong> Much of the best work in this business cannot be published. We are comfortable operating where credit is neither given nor sought.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">02</span>
+      <h2>What We Can Do For You</h2>
+      <span class="skicker">from strategy on a page to rights under management</span>
+    </div>
+    <p class="intro">The service capability runs from the advisory end — where the deliverable is a strategy and a set of introductions — to the tangible end, where Backseat holds, administers or co-owns rights and takes operational responsibility for them. Most relationships begin at the first end and move toward the second as trust is established.</p>
+
+    <div class="grid3" style="margin-bottom:14px">
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--gold)">SERVICE 01</div><div class="tagr">ADVISORY END</div></div>
+        <h3>Marketing Strategy</h3>
+        <p class="p">The thinking before the spend. Positioning, audience thesis, release architecture, catalog reactivation, and the sequencing that determines whether a campaign compounds or evaporates.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Positioning and narrative, release and rollout architecture, audience segmentation, competitive read, budget allocation</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">OUTPUT</span><span>A written strategy, a calendar, a budget with expected returns, and the introductions to execute it</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">FORM</span><span>Project fee or retainer</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--gold)">SERVICE 02</div><div class="tagr">EXECUTION</div></div>
+        <h3>Marketing Execution</h3>
+        <p class="p">Running it, not just recommending it. Campaign management across DSP and editorial, creative production, press, digital and influencer, and the partner and brand conversations that most teams cannot open on their own.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Campaign management, creative production, DSP and editorial relationships, press, digital, influencer, brand partnerships</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">OUTPUT</span><span>A campaign run end to end, with reporting against the numbers agreed at the outset</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">FORM</span><span>Retainer, project fee, or fee plus upside</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--blue)">SERVICE 03</div><div class="tagr">TANGIBLE</div></div>
+        <h3>Rights Administration</h3>
+        <p class="p">Money that is owed but not collected is the most common asset on an underperforming catalog. Backseat brings registration, collection and audit under one roof — a capability the group already builds for its own holdings.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--blue)">WORK</span><span>Registration and metadata repair, global collection, society and DSP reconciliation, royalty accounting, audit and black-box recovery</span></div>
+          <div class="row"><span class="k" style="color:var(--blue)">OUTPUT</span><span>Clean registrations, statements you can read, and recovered income that was already yours</span></div>
+          <div class="row"><span class="k" style="color:var(--blue)">FORM</span><span>Administration rate on collections</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--blue)">SERVICE 04</div><div class="tagr">TANGIBLE</div></div>
+        <h3>Publishing</h3>
+        <p class="p">Publishing structures across the full range — administration, co-publishing, and acquisition — with sync and licensing treated as a first-class revenue line rather than an afterthought.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--blue)">WORK</span><span>Admin and co-publishing deals, catalog acquisition, sync and licensing, creative song placement, advances against future income</span></div>
+          <div class="row"><span class="k" style="color:var(--blue)">OUTPUT</span><span>A publishing home that pays attention to the catalog after the ink dries</span></div>
+          <div class="row"><span class="k" style="color:var(--blue)">FORM</span><span>Deal terms by asset; advance where warranted</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--green)">SERVICE 05</div><div class="tagr">ALIGNED</div></div>
+        <h3>Joint Ventures</h3>
+        <p class="p">Where the interests are genuinely shared, a fee is the wrong instrument. Backseat will put capital and operating capability into a jointly-owned vehicle and take its return from what the venture earns.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--green)">WORK</span><span>Label services and imprint JVs, catalog acquisition vehicles, artist and roster ventures, publishing and administration co-ventures</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">OUTPUT</span><span>A structured entity with capital in it, defined governance, and both parties paid from the same line</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">FORM</span><span>Equity and profit share; capital contributed</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--green)">SERVICE 06</div><div class="tagr">ALIGNED</div></div>
+        <h3>Advisory</h3>
+        <p class="p">Counsel at the level where the decisions are irreversible: what a catalog is worth, whether to sell, how to structure, and how to prepare an asset so that the market pays properly for it.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--green)">WORK</span><span>Catalog valuation and diligence, deal structuring, sell-side preparation, buyer and partner introductions, board and strategic counsel</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">OUTPUT</span><span>A defensible number, a structure that survives diligence, and a shorter path to the right counterparty</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">FORM</span><span>Retainer, success fee, or equity</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band" style="border-top:none">
+      <span class="k">THE POINT</span>
+      <p>Every one of these is a capability Backseat builds for its own balance sheet first. The administration platform exists because Backseat intends to own catalogs; the marketing capability exists because it intends to market them. Clients get access to infrastructure that was not built to be sold — which is why it is good.</p>
+    </div>
+  </section>
+
+  <!-- 03 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">03</span>
+      <h2>Venture — Capital &amp; Structure</h2>
+      <span class="skicker">we can buy, not only recommend</span>
+    </div>
+    <p class="intro">Backseat is structured simply: an investment management function that raises and allocates the capital, a holding company for the catalogs we buy, and a services division that runs the same machinery for rights we do not own. For a partner, that structure is the difference between being advised and being backed.</p>
+
+    <div class="stats" style="margin-bottom:14px">
+      <div>
+        <div class="lab">POSTURE</div>
+        <div class="big">Own</div>
+        <div class="sub">the default outcome is ownership — of rights, of IP, of the vehicle — not a mandate that ends.</div>
+      </div>
+      <div>
+        <div class="lab">OPERATING UNITS</div>
+        <div class="big">3</div>
+        <div class="sub">investment management, music catalog holdings, artist &amp; label services. Nothing else.</div>
+      </div>
+      <div>
+        <div class="lab">FUND LIFE</div>
+        <div class="big">10yr</div>
+        <div class="sub">a standard venture fund life to 2036 — five years investing, five years harvesting.</div>
+      </div>
+      <div>
+        <div class="lab">REINFORCING LOOPS</div>
+        <div class="big">2</div>
+        <div class="sub">the capital flywheel and the relationship flywheel, each feeding the other.</div>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-bottom:14px">
+      <div class="panel">
+        <h4>What the balance sheet changes</h4>
+        <ul class="tick">
+          <li><strong>Capital can move with the advice.</strong> When the right answer is to buy the asset rather than write about it, that is available in the same conversation.</li>
+          <li><strong>Alignment can be structural.</strong> Equity, profit share and co-investment are on the table, so incentives can be built into the deal instead of policed by the contract.</li>
+          <li><strong>Speed where it is scarce.</strong> Decisions are made by principals. There is no committee between a partner and an answer.</li>
+          <li><strong>Focus.</strong> We do two things — buy catalogs and service them. A partner is not paying for attention that is spread across unrelated businesses.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>How capital is disciplined</h4>
+        <p class="p">Backseat applies one governing test to every dollar it deploys, on its own account and alongside partners: it must do at least two of the following. A partner should expect to be asked which two.</p>
+        <div class="chips">
+          <span class="chip">Recurring cash flow</span>
+          <span class="chip">Appreciation</span>
+          <span class="chip">Proprietary IP</span>
+          <span class="chip">Strategic relationships</span>
+          <span class="chip">Proprietary deal flow</span>
+          <span class="chip">Operating leverage</span>
+          <span class="chip">Distribution</span>
+          <span class="chip">Capital efficiency</span>
+          <span class="chip">Network effects</span>
+          <span class="chip">Compounding enterprise value</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <span class="k">EVIDENCE, NOT INTENTION</span>
+      <p>The venture standpoint is already in the ground rather than in a plan: two music catalogs under active review, a services and advisory book that can be opened on relationships alone, and Vyb — a product live in market and earning today. A partner is joining something that is already moving.</p>
+    </div>
+  </section>
+
+  <!-- 04 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">04</span>
+      <h2>Optics — Standing &amp; Narrative</h2>
+      <span class="skicker">the halo is an asset; we also operate the machinery</span>
+    </div>
+    <p class="intro">Optics is treated here as two distinct things that are usually confused. The first is standing — what association with Backseat does for how a partner is seen and who will take their call. The second is the capability that manufactures it: narrative, press, placement and rollout, run as a service. Both are on offer.</p>
+
+    <div class="grid2" style="margin-bottom:14px">
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--green)">OPTICS I</div><div class="tagr">BY ASSOCIATION</div></div>
+        <h3>The halo</h3>
+        <p class="p">Backseat is deliberately built to be a name that helps the people attached to it. Owned music rights, and a services business trusted with catalogs belonging to other people, both point at the same thing: a counterparty that is taken seriously in more than one room.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--green)">GIVES</span><span>Cultural legitimacy that a purely financial partner cannot confer</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">GIVES</span><span>Access to catalogs, rosters and rights-holders that never reach an open process</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">GIVES</span><span>Validation for a client's own fundraising, recruiting and partner conversations</span></div>
+          <div class="row"><span class="k" style="color:var(--green)">GIVES</span><span>Association with owned properties rather than borrowed ones</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="cardtop"><div class="tag" style="color:var(--gold)">OPTICS II</div><div class="tagr">AS A SERVICE</div></div>
+        <h3>The machinery</h3>
+        <p class="p">Standing is produced, not wished for. Backseat will run the same function for a partner that it runs for itself: deciding what the story is, placing it where it counts, sequencing the rollout, and holding the line when the story turns.</p>
+        <div class="rows">
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Narrative architecture — what the story is, and what it is not</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Press strategy and placement; long-form and trade positioning</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Launch and rollout sequencing across announcement, release and follow-through</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Reputation management, issue handling and crisis counsel</span></div>
+          <div class="row"><span class="k" style="color:var(--gold)">WORK</span><span>Positioning for a raise, a sale, or a public moment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <span class="k">HOW IT PAYS</span>
+      <p>Optics is not decoration on this balance sheet — it is an input to price. Cultural standing is what makes off-market catalogs reachable, what makes a catalog financeable, and what makes a rights-holder return the call. Work that improves how a partner is perceived improves what they can buy and what they can be paid.</p>
+    </div>
+  </section>
+
+  <!-- 05 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">05</span>
+      <h2>Ways to Work Together</h2>
+      <span class="skicker">the same relationship at five depths</span>
+    </div>
+    <p class="intro">These are not separate products so much as points on one line, ordered by how much of the outcome each side owns. A relationship that begins at the top of this table can move down it as the work proves out — and often should.</p>
+
+    <div class="tbl">
+      <div class="h">MODEL</div>
+      <div class="h">YOU BRING</div>
+      <div class="h">BACKSEAT BRINGS</div>
+      <div class="h">BEST WHEN</div>
+
+      <div class="n"><span>MODEL 01</span>Advisory Retainer</div>
+      <div>A question that matters — a valuation, a structure, a decision to sell or hold.</div>
+      <div>Judgement, diligence, structuring, and the introductions that follow from the position.</div>
+      <div>You need the answer to be right more than you need hands on the work.</div>
+
+      <div class="n"><span>MODEL 02</span>Service Mandate</div>
+      <div>An asset or a release and a budget to put behind it.</div>
+      <div>Strategy and execution — campaign, creative, press, partnerships — run end to end.</div>
+      <div>The plan is clear and the constraint is capability and reach.</div>
+
+      <div class="n"><span>MODEL 03</span>Administration or Publishing Deal</div>
+      <div>Rights that are underserviced, under-registered or under-collected.</div>
+      <div>Registration, global collection, audit, sync and licensing — and an advance where warranted.</div>
+      <div>The income exists but the infrastructure around it does not.</div>
+
+      <div class="n"><span>MODEL 04</span>Joint Venture</div>
+      <div>Roster, catalog, relationships or a market position.</div>
+      <div>Capital, structure, operating capability, and shared ownership of the result.</div>
+      <div>Both sides are contributing something the other cannot buy.</div>
+
+      <div class="n"><span>MODEL 05</span>Acquisition or Investment</div>
+      <div>An asset or a company you are ready to sell, recapitalize or grow.</div>
+      <div>Underwriting, capital, and a home that intends to hold rather than flip.</div>
+      <div>You want certainty of close and an owner who understands the asset.</div>
+    </div>
+  </section>
+
+  <!-- 06 ------------------------------------------------------------------ -->
+  <section>
+    <div class="shead">
+      <span class="snum">06</span>
+      <h2>Next Step</h2>
+      <span class="skicker">a short conversation, then something specific</span>
+    </div>
+    <div class="panel">
+      <div class="grid2" style="gap:26px">
+        <div>
+          <p class="p" style="margin-bottom:14px">The useful first meeting is thirty minutes about one asset, one release or one decision — not a general introduction. We will tell you plainly which of the five models fits, and if none of them do, we will say so.</p>
+          <ul class="tick">
+            <li>Bring the asset, the question, or the deadline.</li>
+            <li>We come back with a view, a structure and a number.</li>
+            <li>Nothing here requires a mandate to begin.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tagr" style="margin-bottom:9px">CONTACT</div>
+          <div class="slot">[ TO SUPPLY — name, title, email, phone ]<br><em>and the entity name to sign as</em></div>
+          <div class="tagr" style="margin:18px 0 9px">REFERENCE</div>
+          <p style="font-size:16.5px;line-height:1.45;color:var(--body);margin:0">The full ten-year plan, unit structure, capital roadmap and phasing is set out in the <a href="./index.html">Backseat baseline document</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="end">
+    <span>BACKSEAT — CONFIDENTIAL</span>
+    <span>PARTNERS &amp; CLIENTS · REV. 01</span>
+  </footer>
+
+</div>
+</body></html>
